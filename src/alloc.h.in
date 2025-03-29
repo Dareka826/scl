@@ -1,0 +1,21 @@
+#ifndef __SCL_ALLOC_XX_SIZE_XX_H_WK7boqXA
+#define __SCL_ALLOC_XX_SIZE_XX_H_WK7boqXA
+
+#include "alloc_common.h"
+
+typedef struct SCL_CAT2(alloc, XX_SIZE_XX) {
+    bool_t valid;
+    ubyte *(ptrs[XX_SIZE_XX]);
+    usize    ids[XX_SIZE_XX];
+} alloc_t(XX_SIZE_XX);
+
+void alloc_init(XX_SIZE_XX)(alloc_t(XX_SIZE_XX) * const in_ptr);
+void alloc_deinit(XX_SIZE_XX)(alloc_t(XX_SIZE_XX) * const in_ptr);
+
+ubyte *alloc_new(XX_SIZE_XX)(alloc_t(XX_SIZE_XX) * const in_ptr, usize in_id, size_t in_n);
+ubyte *alloc_new_rand(XX_SIZE_XX)(alloc_t(XX_SIZE_XX) * const in_ptr, usize * const out_id, size_t in_n);
+
+void alloc_free(XX_SIZE_XX)(alloc_t(XX_SIZE_XX) * const in_ptr, usize in_id);
+void alloc_free_all(XX_SIZE_XX)(alloc_t(XX_SIZE_XX) * const in_ptr);
+
+#endif
