@@ -4,9 +4,15 @@
 #include "gen_types.h"
 #include <stddef.h>
 
-typedef unsigned char umin_t;
-typedef   signed char imin_t;
+typedef unsigned char  uchar;
+typedef   signed char  ichar;
+typedef unsigned short ushort;
+typedef   signed short ishort;
+typedef unsigned int   uint;
+typedef   signed int   iint;
+typedef unsigned long  ulong;
+typedef   signed long  ilong;
 
-typedef umin_t bool_t;
+typedef uchar bool_t;
 
 #endif
