@@ -43,8 +43,9 @@ ubyte *alloc_new(SIZE)(alloc_t(SIZE) * const in_ptr, usize in_id, size_t in_n) {
 } \
 \
 ubyte *alloc_new_rand(SIZE)(alloc_t(SIZE) * const in_ptr, usize * const out_id, size_t in_n) { \
-    *out_id = rand() % RAND_MAX + 1; \
-    return alloc_new(SIZE)(in_ptr, *out_id, in_n); \
+    usize id = rand() % RAND_MAX + 1; \
+    if (out_id != NULL) *out_id = id; \
+    return alloc_new(SIZE)(in_ptr, id, in_n); \
 } \
 \
 void alloc_free(SIZE)(alloc_t(SIZE) * const in_ptr, usize in_id) { \
